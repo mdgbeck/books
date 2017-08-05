@@ -6,6 +6,7 @@ library(e1071)
 library(caret)
 library(gridExtra)
 library(GGally)
+library(corrplot)
 
 # call the data
 data(segmentationOriginal)
@@ -38,7 +39,7 @@ data_frame(
 ) %>% 
   ggplot(aes(value)) +
   geom_histogram() +
-  facet_wrap(~facet, scales="free") + 
+  facet_wrap(~facet, scales = "free") + 
   theme_minimal()
 
 # comparing skewness of boxcox with lambda = -1
@@ -48,7 +49,7 @@ data_frame(
 ) %>% 
   ggplot(aes(value)) +
   geom_histogram() +
-  facet_wrap(~facet, scales="free") + 
+  facet_wrap(~facet, scales = "free") + 
   theme_minimal()
 
 # compute prcomp is used to conduct PCA
@@ -57,10 +58,11 @@ pr <- prcomp(~ AvgIntenCh1 + EntropyIntenCh1,
              scale. = TRUE)
 
 # visualize pca
+# looks like labels are backwards in book
 seg_train_box %>% 
   mutate(Class = seg_train_full$Class) %>% 
   ggplot(aes(EntropyIntenCh1, AvgIntenCh1)) +
-  geom_point(aes(color = Class), alpha=.5) + 
+  geom_point(aes(color = Class), alpha = .5) + 
   theme_minimal()
 
 as.data.frame(pr$x) %>% 
@@ -86,6 +88,35 @@ as.data.frame(seg_pr$x[, 1:3]) %>%
   mutate(Class = seg_train_full$Class) %>% 
   ggpairs(aes(color = Class))
 
+# compute correlation for corrplot
+seg_corr <- cor(seg_train_pca)
+
+corrplot(seg_corr, order = "hclust", tl.cex = .35)
+
+# caret has function to calculate columns with > x correlation
+high_corr <- findCorrelation(seg_corr, .75)
 
 
+# create variables / dummy variable
+data(cars)
+type <- c("convertible", "coupe", "hatchback", "sedan", "wagon")
+cars$Type <- factor(apply(cars[, 14:18], 1, function(x) type[which(x == 1)]))
 
+cars_sub <- cars %>% 
+  select(1, 2, 19) %>% 
+  slice(sample(nrow(cars), 20))
+
+levels(carSubset$Type)
+
+simpleMod <- dummyVars(~Mileage + Type,
+                       data = carSubset,
+                       ## Remove the variable name from the
+                       ## column name
+                       levelsOnly = TRUE)
+simpleMod
+
+withInteraction <- dummyVars(~Mileage + Type + Mileage:Type,
+                             data = carSubset,
+                             levelsOnly = TRUE)
+withInteraction
+predict(withInteraction, head(carSubset))
