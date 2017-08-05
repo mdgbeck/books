@@ -7,6 +7,7 @@ library(caret)
 library(gridExtra)
 library(GGally)
 library(corrplot)
+library(mlbench)
 
 # call the data
 data(segmentationOriginal)
@@ -120,3 +121,19 @@ withInteraction <- dummyVars(~Mileage + Type + Mileage:Type,
                              levelsOnly = TRUE)
 withInteraction
 predict(withInteraction, head(carSubset))
+
+# Exercises
+data(Glass)
+glass <- Glass
+
+glass_long <- glass %>% 
+  gather(key, value, -Type)
+
+# look at density plots of each variable
+ggplot(glass_long, aes(value)) +
+  geom_density() +
+  facet_wrap(~key, scales = "free")
+
+glass %>% 
+  select(-Type) %>% 
+  ggpairs()
