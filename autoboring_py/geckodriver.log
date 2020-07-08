@@ -1,0 +1,30 @@
+1594133867105	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilex2TNnY"
+1594133869072	Marionette	INFO	Listening on port 40699
+1594133869112	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594133876341	Marionette	INFO	Stopped listening on port 40699
+1594133951810	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileZZ4AhK"
+1594133953654	Marionette	INFO	Listening on port 39807
+1594133953716	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://inventwithpython.com/js/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+1594133975846	Marionette	INFO	Stopped listening on port 39807
+1594133978925	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilei3QSHb"
+1594133981014	Marionette	INFO	Listening on port 41327
+1594133981031	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594134466864	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilenG0o8H"
+1594134468665	Marionette	INFO	Listening on port 41359
+1594134468670	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://inventwithpython.com/js/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+1594134476786	Marionette	INFO	Stopped listening on port 41359
+1594135865085	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileSGuTb3"
+1594135866824	Marionette	INFO	Listening on port 45959
+1594135866893	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://inventwithpython.com/js/bootstrap.min.js, line 7: Error: Bootstrap tooltips require Tether (http://tether.io/)
+1594135868785	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileRkFoiO"
+1594135870567	Marionette	INFO	Listening on port 43541
+1594135870606	Marionette	WARN	TLS certificate errors will be ignored for this session
+Marionette threw an error: TypeError: this.curBrowser.contentBrowser is null
+GeckoDriver.prototype.get@chrome://marionette/content/driver.js:1165:3
+
+1594135895944	Marionette	INFO	Stopped listening on port 43541
+1594135912982	Marionette	INFO	Stopped listening on port 45959
+1594135913547	Marionette	INFO	Stopped listening on port 41327
