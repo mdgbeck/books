@@ -8,3 +8,4 @@ geckodriver.log
 ./static
 /static
 .env
+*.swp

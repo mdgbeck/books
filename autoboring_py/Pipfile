@@ -10,6 +10,7 @@ pyperclip = "*"
 pyinputplus = "*"
 beautifulsoup4 = "*"
 selenium = "*"
+openpyxl = "*"
 
 [requires]
 python_version = "3.8"
