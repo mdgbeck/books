@@ -8,4 +8,5 @@ geckodriver.log
 ./static
 /static
 .env
-*.swp
+/python_da/examples
+/python_da/datasets
